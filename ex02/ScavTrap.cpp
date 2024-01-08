@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:10:13 by ndesprez          #+#    #+#             */
-/*   Updated: 2024/01/08 16:43:16 by ndesprez         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:21:56 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap():ClapTrap()
 	this->_ad = 20;
 }
 
-ScavTrap::ScavTrap(ScavTrap const &instance):ClapTrap()
+ScavTrap::ScavTrap(ScavTrap const &instance):ClapTrap(instance)
 {
 	std::cout << "Scav copy constructor." << std::endl;
 	*this = instance;

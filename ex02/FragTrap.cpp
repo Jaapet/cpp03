@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 16:10:13 by ndesprez          #+#    #+#             */
-/*   Updated: 2024/01/08 17:23:30 by ndesprez         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:22:06 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ FragTrap::FragTrap():ClapTrap()
 	this->_ad = 30;
 }
 
-FragTrap::FragTrap(FragTrap const &instance):ClapTrap()
+FragTrap::FragTrap(FragTrap const &instance):ClapTrap(instance)
 {
 	std::cout << "Frag copy constructor." << std::endl;
 	*this = instance;

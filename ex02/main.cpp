@@ -6,7 +6,7 @@
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/08 14:41:38 by ndesprez          #+#    #+#             */
-/*   Updated: 2024/01/08 17:24:32 by ndesprez         ###   ########.fr       */
+/*   Updated: 2024/01/08 18:50:15 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,12 @@ int main(void)
 	fragTrap2 = FragTrap("Foo");
 	clapTrap4 = FragTrap("Bar");
 
-	fragTrap2.attack(clapTrap4.getName());
-	clapTrap4.takeDamage(fragTrap2.getAd());
-	clapTrap4.beRepaired(fragTrap2.getAd() / 3);
+	while (clapTrap4.getHp())
+	{
+		fragTrap2.attack(clapTrap4.getName());
+		clapTrap4.takeDamage(fragTrap2.getAd());
+		clapTrap4.beRepaired(fragTrap2.getAd() / 3);
+	}
 
 	fragTrap2.highFivesGuys();
 

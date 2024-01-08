@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ndesprez <ndesprez@student.42nice.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/08 14:41:38 by ndesprez          #+#    #+#             */
-/*   Updated: 2024/01/08 18:50:20 by ndesprez         ###   ########.fr       */
+/*   Created: 2024/01/08 16:10:04 by ndesprez          #+#    #+#             */
+/*   Updated: 2024/01/08 18:06:48 by ndesprez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_H
+# define FRAGTRAP_H
 
-int main(void)
+# include "ClapTrap.hpp"
+
+class FragTrap : virtual public ClapTrap
 {
-	ScavTrap scavTrap1;
-	ScavTrap scavTrap2(scavTrap1);
-	ClapTrap clapTrap3(scavTrap2);
+public:
+	FragTrap();
+	FragTrap(FragTrap const &instance);
+	FragTrap	&operator=(FragTrap const &instance);
+	~FragTrap();
 
-	scavTrap2 = ScavTrap("Foo");
-	clapTrap3 = ScavTrap("Bar");
+	FragTrap(std::string const &name);
 
-	while (clapTrap3.getHp())
-	{
-		scavTrap2.attack(clapTrap3.getName());
-		clapTrap3.takeDamage(scavTrap2.getAd());
-		clapTrap3.beRepaired(scavTrap2.getAd() / 4);
-	}
+	void	highFivesGuys() const;
+};
 
-	scavTrap2.guardGate();
-
-	return 0;
-}
+#endif
